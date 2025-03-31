@@ -1,0 +1,151 @@
+/* Header.css - Thème noir et doré */
+:root {
+  --gold: #d4af37;
+  --gold-light: #e5c76b;
+  --gold-dark: #a38728;
+  --black: #0a0a0a;
+  --black-light: #1a1a1a;
+  --black-lighter: #222222;
+  --text-light: #ffffff;
+  --text-gold: #d4af37;
+  --transition-speed: 0.3s;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--black);
+  padding: 15px 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid var(--black-lighter);
+}
+
+.header-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--gold);
+  letter-spacing: 1px;
+  transition: all var(--transition-speed) ease;
+}
+
+.logo a:hover {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.logo img {
+  width: 80px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
+  transition: all var(--transition-speed) ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+}
+
+.navigation {
+  display: flex;
+  gap: 30px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: all var(--transition-speed) ease;
+}
+
+.navigation a:hover {
+  color: var(--gold);
+}
+
+.navigation a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--gold);
+  transition: width var(--transition-speed) ease;
+}
+
+.navigation a:hover::after {
+  width: 100%;
+}
+
+.login-icon {
+  cursor: pointer;
+  color: var(--gold);
+  transition: all var(--transition-speed) ease;
+  position: relative;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.login-icon:hover {
+  color: var(--gold-light);
+  transform: scale(1.1);
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Animation pour le header lors du défilement */
+@keyframes headerShadow {
+  from {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  to {
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8), 0 0 10px rgba(212, 175, 55, 0.2);
+  }
+}
+
+.header-scrolled {
+  animation: headerShadow 0.3s forwards;
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 12px 20px;
+  }
+
+  .navigation {
+    gap: 15px;
+  }
+
+  .logo img {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation {
+    gap: 10px;
+  }
+
+  .navigation a {
+    font-size: 0.9rem;
+  }
+}
+

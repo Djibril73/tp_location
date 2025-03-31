@@ -1,0 +1,697 @@
+/* Variables pour le thème noir et doré */
+:root {
+  --gold: #d4af37;
+  --gold-light: #e5c76b;
+  --gold-dark: #a38728;
+  --black: #0a0a0a;
+  --black-light: #1a1a1a;
+  --black-lighter: #222222;
+  --text-light: #ffffff;
+  --text-gold: #d4af37;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--black);
+  color: var(--text-light);
+  font-family: "Poppins", sans-serif;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.cars-page {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--black);
+}
+
+.header-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--black-lighter);
+}
+
+.cars-hero-section {
+  width: 100%;
+  height: 700px;
+  text-align: center;
+  margin: 0;
+  padding: 6rem 2rem;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cars-hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.filters-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 0 2rem;
+}
+
+.search-bar {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 1px solid var(--black-lighter);
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: rgba(73, 69, 69, 0.7);
+  color: var(--text-light);
+}
+
+.search-bar input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+  background-color: rgba(40, 40, 40, 0.9);
+}
+
+.search-bar input::placeholder {
+  color: #aaa;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.category-btn {
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  border: 1px solid var(--black-lighter);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #ccc;
+}
+
+.category-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--gold-dark);
+  color: var(--gold-light);
+}
+
+.category-btn.active {
+  background-color: var(--black-lighter);
+  color: var(--gold);
+  border-color: var(--gold-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.category-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Nouveau style pour le sélecteur de dates */
+.date-selection-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  background-color: var(--black-light);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.date-selection-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark));
+  z-index: 1;
+}
+
+/* Date input wrapper */
+.date-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--black-lighter);
+  border-radius: 8px;
+  padding: 15px 20px;
+  transition: all var(--transition-speed) ease;
+  border: 1px solid transparent;
+  position: relative;
+  width: 280px;
+}
+
+.date-input-wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.15);
+}
+
+.date-input-wrapper.focused {
+  border-color: var(--gold);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.date-input-wrapper.animate {
+  animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Date icon */
+.date-icon {
+  color: var(--gold);
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+/* Date label */
+.date-label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 14px;
+  color: var(--text-gold);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Input container */
+.input-container {
+  position: relative;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* Date input */
+.input-container input[type="date"] {
+  width: 100%;
+  padding: 10px 40px 10px 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--gold-dark);
+  color: var(--text-light);
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  transition: all var(--transition-speed) ease;
+  cursor: pointer;
+}
+
+.input-container input[type="date"]:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+}
+
+/* Hide default calendar icon */
+.input-container input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+/* Chevron icons */
+.chevron-icon {
+  position: absolute;
+  color: var(--gold);
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+  transition: all var(--transition-speed) ease;
+}
+
+.chevron-icon.left {
+  right: 30px;
+}
+
+.chevron-icon.right {
+  right: 10px;
+}
+
+.input-container:hover .chevron-icon {
+  opacity: 0.7;
+}
+
+/* Date separator */
+.date-separator {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.separator-line {
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cars-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem 2rem;
+}
+
+.car-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--black-light);
+  border: 1px solid var(--black-lighter);
+  position: relative;
+}
+
+.car-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.car-card:hover::before {
+  opacity: 1;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.car-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.car-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.car-card:hover .car-image img {
+  transform: scale(1.05);
+}
+
+.car-price {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--gold);
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-top-left-radius: 8px;
+  border-left: 1px solid var(--gold-dark);
+  border-top: 1px solid var(--gold-dark);
+}
+
+.car-price span {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.car-details {
+  padding: 1.5rem;
+}
+
+.car-details h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.car-year {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.car-description {
+  color: #aaa;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.car-specs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--black-lighter);
+}
+
+.spec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.spec-icon {
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.spec span {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.reserve-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--black-lighter);
+  color: var(--gold);
+  border: 1px solid var(--gold-dark);
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.reserve-btn:hover {
+  background-color: var(--black-light);
+  color: var(--gold-light);
+}
+
+.reserve-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.reserve-btn:hover::after {
+  transform: translateX(0);
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--black-lighter);
+  border-top: 3px solid var(--gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  color: #ff6b6b;
+  font-weight: 500;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  background-color: var(--black-light);
+  border-radius: 8px;
+  border: 1px solid var(--black-lighter);
+}
+
+.no-results h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.no-results p {
+  color: #888;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cars-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .hero-section {
+    padding: 3rem 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .date-selection-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .date-input-wrapper {
+    width: 100%;
+  }
+
+  .date-separator {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .cars-page {
+    padding: 1rem;
+  }
+
+  .cars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .car-specs {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .spec {
+    flex: 1 0 30%;
+  }
+}
+
+/* Navigation styles */
+nav {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid var(--black-lighter);
+}
+
+nav a {
+  color: var(--text-light);
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+/* Logo styles */
+.logo img {
+  max-height: 60px;
+}
+
+.background-video {
+  width: 100%;
+  height: 60vh !important;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+}
+
+/* Overlay qui prend tout l'écran et obscurcit l'arrière-plan */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6); /* Overlay semi-transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Au-dessus du reste */
+}
+
+/* Contenu de la modale */
+.modal-content {
+  background-color: #111; /* Fond sombre */
+  border: 1px solid #444; /* Légère bordure pour le contraste */
+  border-radius: 8px;
+  padding: 2rem;
+  width: 400px;
+  max-width: 90%;
+  color: #f5f5f5; /* Texte clair */
+  text-align: center;
+}
+
+/* Titre en doré */
+.modal-content h2 {
+  color: #FFD700; /* Doré */
+  margin-bottom: 1rem;
+}
+
+/* Boutons */
+.close-modal-btn, .login-btn {
+  background-color: #333; /* Fond sombre */
+  border: 1px solid #FFD700; /* Bordure dorée */
+  color: #FFD700; /* Texte doré */
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.close-modal-btn:hover, .login-btn:hover {
+  background-color: #FFD700; /* Inversion sur hover */
+  color: #111; /* Texte sombre */
+}

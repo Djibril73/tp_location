@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Ajoutez ceci à votre App.css ou créez-le si nécessaire */
+.main-content {
+  position: relative;
+  z-index: 5; /* Au-dessus de la vidéo mais sous le header */
+  min-height: calc(100vh - 80px); /* Ajustez selon la hauteur de votre header */
+  padding-top: 20px;
+}
+
+
+
